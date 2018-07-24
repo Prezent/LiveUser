@@ -139,9 +139,9 @@ class LiveUser_Auth_MDB2 extends LiveUser_Auth_Common
         if (!MDB2::isConnection($this->dbc) && !is_null($this->dsn)) {
             $this->options['portability'] = MDB2_PORTABILITY_ALL;
             if ($this->function == 'singleton') {
-                $dbc =& MDB2::singleton($this->dsn, $this->options);
+                $dbc = MDB2::singleton($this->dsn, $this->options);
             } else {
-                $dbc =& MDB2::connect($this->dsn, $this->options);
+                $dbc = MDB2::connect($this->dsn, $this->options);
             }
             if (PEAR::isError($dbc)) {
                 $this->stack->push(LIVEUSER_ERROR_INIT_ERROR, 'error',
