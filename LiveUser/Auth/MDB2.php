@@ -132,7 +132,7 @@ class LiveUser_Auth_MDB2 extends LiveUser_Auth_Common
      *
      * @access public
      */
-    function init(&$conf, $containerName)
+    function init($conf, $containerName)
     {
         parent::init($conf, $containerName);
 

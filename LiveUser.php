@@ -622,7 +622,7 @@ class LiveUser
         $key = key($confArray);
         $count = count($confArray);
         $storageName = $classprefix.'Storage_' . $key;
-//        if (!LiveUser::loadClass($storageName, true)) {
+        if (!LiveUser::loadClass($storageName, true)) {
             if ($count <= 1) {
                 $storage = false;
                 return $storage;
@@ -638,7 +638,7 @@ class LiveUser
                 $storage = LiveUser::storageFactory($newConfArray, $classprefix);
                 return $storage;
             }
-//        }
+        }
         $storageConf = $confArray[$key];
         $newConfArray = array();
         foreach ($confArray as $keyNew => $foo) {
