@@ -33,7 +33,7 @@
  * @category authentication
  * @package LiveUser
  * @author   Markus Wolff <wolff@21st.de>
- * @author   Helgi Þormar Þorbjörnsson <dufuz@php.net>
+ * @author   Helgi ï¿½ormar ï¿½orbjï¿½rnsson <dufuz@php.net>
  * @author   Lukas Smith <smith@pooteeweet.org>
  * @author   Arnaud Limbourg <arnaud@php.net>
  * @author   Pierre-Alain Joye  <pajoye@php.net>
@@ -571,14 +571,14 @@ class LiveUser
      */
     function &authFactory(&$conf, $containerName, $classprefix = 'LiveUser_')
     {
-        $auth = false;
+//        $auth = false;
         $classname = $classprefix.'Auth_' . $conf['type'];
-        if (LiveUser::loadClass($classname)) {
+//        if (LiveUser::loadClass($classname)) {
             $auth = new $classname();
             if ($auth->init($conf, $containerName) === false) {
                 $auth = false;
             }
-        }
+//        }
         return $auth;
     }
 
@@ -594,14 +594,14 @@ class LiveUser
      */
     function &permFactory(&$conf, $classprefix = 'LiveUser_')
     {
-        $perm = false;
+//        $perm = false;
         $classname = $classprefix.'Perm_' . $conf['type'];
-        if (LiveUser::loadClass($classname)) {
+//        if (LiveUser::loadClass($classname)) {
             $perm = new $classname();
             if ($perm->init($conf) === false) {
                 $perm = false;
             }
-        }
+//        }
 
         return $perm;
     }
@@ -622,7 +622,7 @@ class LiveUser
         $key = key($confArray);
         $count = count($confArray);
         $storageName = $classprefix.'Storage_' . $key;
-        if (!LiveUser::loadClass($storageName, true)) {
+//        if (!LiveUser::loadClass($storageName, true)) {
             if ($count <= 1) {
                 $storage = false;
                 return $storage;
@@ -638,7 +638,7 @@ class LiveUser
                 $storage = LiveUser::storageFactory($newConfArray, $classprefix);
                 return $storage;
             }
-        }
+//        }
         $storageConf = $confArray[$key];
         $newConfArray = array();
         foreach ($confArray as $keyNew => $foo) {
@@ -913,10 +913,10 @@ class LiveUser
      */
     function &cryptRC4Factory($secret)
     {
-        $rc4 = false;
-        if (LiveUser::loadClass('Crypt_Rc4')) {
+//        $rc4 = false;
+//        if (LiveUser::loadClass('Crypt_Rc4')) {
             $rc4 = new Crypt_Rc4($secret);
-        }
+//        }
         return $rc4;
     }
 
